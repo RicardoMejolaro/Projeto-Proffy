@@ -3,33 +3,51 @@ import React from 'react';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
-function TeacherItem() {
-  return(
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: number;
+}
+
+interface TeachersProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeachersProps> = ({ teacher }) => {
+   function createNewConnection() {
+     api.post('proffy/connections', {
+      user_id: teacher.id,
+    });
+  }
+
+  return (
     <article className="teacher-item">
-    <header>
-      <img src="https://avatars0.githubusercontent.com/u/56407810?s=460&u=928b5353390601f2e44f39f5dc8c646cd152b300&v=4" alt="Ricardo Mejolaro"/>
-      <div>
-        <strong>Ricardo Mejolaro</strong>
-        <span>Programação</span>
-      </div>
-    </header>
+      <header>
+        <img src={ teacher.avatar } alt={ teacher.name } />
+        <div>
+          <strong>{ teacher.name }</strong>
+          <span>{ teacher.subject }</span>
+        </div>
+      </header>
 
-    <p>Formado em Sistemas de Informação.
-        <br/><br/>  
-      Apaixonado por desenvolvimento Web, e todo o universo JavaScript.
-    </p>
+      <p>{ teacher.bio }</p>
 
-    <footer>
-      <p>Preço/hora
-        <strong>R$ 80,00</strong>
-      </p>
-      <button type="button">
-        <img src={whatsappIcon} alt="Whatsapp"/>
+      <footer>
+        <p>Preço/hora
+        <strong>R$ { teacher.cost },00</strong>
+        </p>
+        <a onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp}`} target="_blank">
+          <img src={whatsappIcon} alt="Whatsapp" />
         Entrar em contato
-      </button>
-    </footer>
-  </article>
+      </a>
+      </footer>
+    </article>
   );
 }
 
