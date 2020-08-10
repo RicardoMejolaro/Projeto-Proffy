@@ -58,7 +58,7 @@ function TeacherForm() {
       schedule: scheduleItems,
     }).then(() => {
         alert('Cadastro realizado com sucesso!');
-        history.push('/proffy')
+        history.push('/')
     }).catch((error) => {
         alert(`Erro no cadastro: ${error}`);
     });

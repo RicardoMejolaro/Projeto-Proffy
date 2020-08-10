@@ -7,7 +7,7 @@ const classesControllers = new ClassesController();
 const connectionsControllers = new ConnectionController();
 
 routes.get('/', (req, res) => {
-  return res.redirect('/proffy');
+  return res.redirect('/proffy/classes');
 })
 
 routes.get('/proffy/classes', classesControllers.index);
