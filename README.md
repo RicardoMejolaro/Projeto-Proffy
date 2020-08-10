@@ -1,5 +1,5 @@
 <h1 align=center>
-<img style="background: black" src="web/src/assets/images/logo.svg" alt="Logo proffy" width="350px">
+<img src="web/src/assets/logo.svg" alt="Logo proffy" width="350px">
 
 ---
 
@@ -37,7 +37,7 @@ A aplicação é uma ferramenta de cadastro e busca de professores para aulas pa
 ## Apresentação da Versão Mobile
 
 <h1 align=center>
-<img src="mobile/src/assets/proffy-versao-mobile.gif" alt="Proffy Mobile gif">
+<img src="web/src/assets/proffy-versao-mobile.gif" alt="Proffy Mobile gif">
 </h1>
 
 ---
