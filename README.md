@@ -37,7 +37,7 @@ A aplicação é uma ferramenta de cadastro e busca de professores para aulas pa
 ## Apresentação da Versão Mobile
 
 <h1 align=center>
-<img src="web/src/assets/proffy-versao-mobile.gif" alt="Proffy Mobile gif">
+<img src="web\src\assets\proffy-versao-mobile.gif" alt="Proffy Mobile gif">
 </h1>
 
 ---
