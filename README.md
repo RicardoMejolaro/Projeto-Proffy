@@ -1,5 +1,5 @@
 <h1 align=center>
-<img src="https://github.com/RicardoMejolaro/Projeto-Proffy/blob/master/web/src/assets/logo-nlw.svg" alt="Logo proffy" width="350px">
+<img src="web/src/assets/logo.svg" alt="Logo proffy" width="350px">
 
 ---
 
