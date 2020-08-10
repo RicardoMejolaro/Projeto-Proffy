@@ -1,5 +1,5 @@
 <h1 align=center>
-<img src="web/src/assets/images/logo.svg" alt="Logo proffy" width="350px">
+<img style="background: black" src="web/src/assets/images/logo.svg" alt="Logo proffy" width="350px">
 
 ---
 
