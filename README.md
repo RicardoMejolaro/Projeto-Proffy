@@ -51,17 +51,18 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - Express
 - Knex
 - Axios
-- Sqlite3
 - CSS
 - ReactJS
 - ReactNative
 - Expo
 - Yarn
+- PostgreSQL
 
 ---
 
 ## 💻️ Acrescentado ao projeto proposto
 
+- Utilizado banco de dados PostgreSQL ao invés do SqLite3 utilizado no curso.
 - Em breve melhorias e implementações dos desafios, através do link:
 
 <ol>
@@ -74,7 +75,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ## 💾️ Como baixar/testar o projeto
 
-- Você irá precisar instalar o [Git](https://git-scm.com/), [NodeJS](https://nodejs.org/pt-br/download/), [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/#alternatives-stable), [Expo](https://docs.expo.io/get-started/installation/) + [Visual Studio code](https://code.visualstudio.com/).
+- Você irá precisar instalar o [Git](https://git-scm.com/), [NodeJS](https://nodejs.org/pt-br/download/), [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/#alternatives-stable), [Expo](https://docs.expo.io/get-started/installation/), [PostgreSQL](https://www.postgresql.org/), [Postbird](https://www.electronjs.org/apps/postbird) + [Visual Studio code](https://code.visualstudio.com/).
 
 ```bash
 # Versões mínimas ou superiores.

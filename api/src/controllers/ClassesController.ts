@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import db from '../database/connection';
+const knex = require('../database/connection');
 import convertHourToMinutes from '../utils/convertHoursToMinutes';
 
 interface ScheduleItem {
@@ -25,18 +25,18 @@ export default class ClassesController {
 
     const timeInMinutes = convertHourToMinutes(time)
 
-    const classes = await db('classes')
-      .whereExists(function() {
-        this.select('class_schedule.*')
-        .from('class_schedule')
-        .whereRaw('`class_schedule`.`class_id` = `classes`.`id`')
-        .whereRaw('`class_schedule`.`week_day` = ??', [Number(week_day)])
-        .whereRaw('`class_schedule`.`from` <= ??', [timeInMinutes])
-        .whereRaw('`class_schedule`.`to` > ??', [timeInMinutes])
-      })
-      .where('classes.subject', '=', subject)
-      .join('users', 'classes.user_id', '=', 'users.id')
-      .select(['classes.*', 'users.*'])
+    const classes = await knex('classes')
+    .whereExists(function() {
+      this.select('class_schedule.*')
+      .from('class_schedule')
+      .whereRaw('"class_schedule"."class_id" = "classes"."id"')
+      .whereRaw('"class_schedule"."week_day" = ??', [Number(week_day)])
+      .whereRaw('"class_schedule"."from" <= ??', [timeInMinutes])
+      .whereRaw('"class_schedule"."to" > ??', [timeInMinutes])
+    })
+    .where('classes.subject', '=', subject)
+    .join('users', 'classes.user_id', '=', 'users.id')
+    .select(['classes.*', 'users.*']);
 
 
     return res.json(classes);
@@ -55,7 +55,7 @@ export default class ClassesController {
     } = req.body;
   
     /*Rodar todos os inserts a mesmo tempo*/
-    const trx = await db.transaction();
+    const trx = await knex.transaction();
   
     try {
       const insertedUsersIds = await trx('users').insert({
@@ -63,7 +63,7 @@ export default class ClassesController {
         avatar,
         whatsapp,
         bio,
-      });
+      }).returning('id');
     
       const user_id = insertedUsersIds[0];
     
@@ -71,7 +71,7 @@ export default class ClassesController {
         subject,
         cost,
         user_id,
-      });
+      }).returning('id');
     
       const class_id = insertedClassesIds[0];
     

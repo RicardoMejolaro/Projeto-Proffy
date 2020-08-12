@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import db from '../database/connection';
+const knex = require('../database/connection');
 
 export default class ConnectionController {
   async index(req: Request, res: Response) {
-    const totalConnections = await db('connections').count('* as total');
+    const totalConnections = await knex('connections').count('* as total');
 
     const { total } = totalConnections[0];
 
@@ -13,7 +13,7 @@ export default class ConnectionController {
   async create(req: Request, res: Response) {
     const { user_id } = req.body;
 
-    await db('connections').insert({
+    await knex('connections').insert({
       user_id,
     });
 

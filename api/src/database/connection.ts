@@ -1,12 +1,4 @@
-import knex from 'knex';
-import path from 'path';
- 
-const db = knex({
-  client: 'sqlite3',
-  connection: {
-    filename: path.resolve(__dirname, 'database.sqlite')
-  },
-  useNullAsDefault: true,
-});
+const knexfile = require('../../knexfile');
+const knex = require('knex')(knexfile.development);
 
-export default db;
+module.exports = knex;
